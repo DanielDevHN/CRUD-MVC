@@ -1,0 +1,43 @@
+﻿@model MVCCRUD.Models.ViewModels.TablaViewModel
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Editar", "Tabla", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d=>d.Id)
+            <div>
+                @Html.LabelFor(d => d.Nombre)
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "red" })
+            </div>
+
+            <div>
+                @Html.LabelFor(d => d.Correo)
+                @Html.TextBoxFor(d => d.Correo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Correo, null, new { @class = "red" })
+            </div>
+
+            <div>
+                @Html.LabelFor(d => d.FechaNacimiento)<br />
+                @Html.EditorFor(d => d.FechaNacimiento, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.FechaNacimiento, null, new { @class = "red" })
+            </div>
+
+            <div>
+                @Html.LabelFor(d => d.Direccion)
+                @Html.TextBoxFor(d => d.Direccion, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Direccion, null, new { @class = "red" })
+            </div>
+
+            <br />
+            <div style="text-align:right;">
+                <input value="Actualizar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>
+}
